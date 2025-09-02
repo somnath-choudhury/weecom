@@ -1,69 +1,68 @@
-# React + TypeScript + Vite
+# Weecom Product Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript application for managing products, using **TanStack Query**, **React Router**, and **Shadcn UI** components. Supports viewing, adding, editing, and deleting products from [dummyjson.com](https://dummyjson.com).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Dashboard with product search, category filter, and pagination  
+- Add / Edit / Delete products with modal dialogs  
+- Optimistic updates for a responsive UI  
+- Uses React Query for data fetching and cache management  
+- Tailwind CSS + Shadcn UI for styling  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## (Important) Optimistic Updates Note
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+This project uses optimistic updates for adding, editing, and deleting products. Since DummyJSON
+ is a mock API, changes made via POST, PUT, or DELETE requests are not persisted on the server.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+To give the user a smooth experience, the frontend immediately updates the UI when a mutation is triggered. If the request fails, the previous state is restored, and an error toast is shown. This approach ensures a responsive interface even though the backend does not retain changes.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/somnath-choudhury/weecom
+   cd weecom
+   ```
+2. **Install Dependencies**
+    ```bash
+    npm install
+    ```
+3. **Start the server**
+    ```bash
+    npm run dev
+    ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. Open in browser
+    ```bash
+    http://localhost:5173
+    ```
+
+---
+
+## Usage
+- On the Dashboard, click Go to Inventory to view products
+
+- Use Search and Category filter to find products
+
+- Click Add Product to create a new product
+
+- Use Edit and Delete buttons in the table to manage products
+
+- Pagination buttons allow navigating through product pages
+
+## Technologies Used
+
+- React + TypeScript
+
+- TanStack Query (React Query)
+
+- React Router
+
+- Tailwind CSS
+
+- Shadcn UI Components

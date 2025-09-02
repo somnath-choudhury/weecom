@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import { addProduct } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
@@ -33,12 +32,12 @@ export const AddProductDialog = () => {
         };
       });
 
-      toast.success("Product added!");
+    //   toast.success("Product added!");
       setOpen(false);
       setTitle("");
       setPrice(0);
     },
-    onError: () => toast.error("Failed to add product"),
+    // onError: () => toast.error("Failed to add product"),
   });
 
   return (

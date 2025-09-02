@@ -2,7 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { deleteProduct } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 
 export function DeleteProductButton({
   id,
@@ -40,7 +39,7 @@ export function DeleteProductButton({
       return { previousData };
     },
     onError: (_err, _, context: any) => {
-      toast.error("Failed to delete product");
+    //   toast.error("Failed to delete product");
       if (context?.previousData) {
         queryClient.setQueryData(
           ["products", skip, search, category],
@@ -53,7 +52,7 @@ export function DeleteProductButton({
         queryKey: ["products", skip, search, category],
       });
     },
-    onSuccess: () => toast.success("Product deleted!"),
+    // onSuccess: () => toast.success("Product deleted!"),
   });
 
   const handleDelete = () => {
