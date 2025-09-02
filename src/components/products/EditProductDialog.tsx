@@ -35,7 +35,7 @@ export function EditProductDialog({
 
   const mutation = useMutation({
     mutationFn: () => updateProduct(product.id, { title, price }),
-    onMutate: async (updatedProduct) => {
+    onMutate: async () => {
       await queryClient.cancelQueries({
         queryKey: ["products", skip, search, category],
       });

@@ -39,7 +39,7 @@ export function DeleteProductButton({
 
       return { previousData };
     },
-    onError: (err, _, context: any) => {
+    onError: (_err, _, context: any) => {
       toast.error("Failed to delete product");
       if (context?.previousData) {
         queryClient.setQueryData(
