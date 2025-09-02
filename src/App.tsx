@@ -1,51 +1,7 @@
-// import { Layout } from "@/components/layout/Layout";
-// import { useProducts } from "@/hooks/useProducts";
-// import { ProductTable } from "./components/products/ProductsTable";
-
 import { useState } from "react";
 import { Layout } from "./components/layout/Layout";
 import { useProducts } from "./hooks/useProducts";
 import { ProductTable } from "./components/products/ProductsTable";
-
-// export default function App() {
-//   const { data, isLoading, isError } = useProducts(0, "", "all");
-
-//   return (
-//     <Layout>
-//       {isError && <p className="text-red-500">Failed to load products.</p>}
-//       <ProductTable
-//         products={data?.products ?? []} // safe optional chaining
-//         isLoading={isLoading}
-//         onEdit={(p) => console.log("edit", p)}
-//         onDelete={(id) => console.log("delete", id)}
-//       />
-//     </Layout>
-//   );
-// }
-
-// import { Layout } from "@/components/layout/Layout";
-// import { useProducts } from "@/hooks/useProducts";
-// import { ProductTable } from "@/components/products/ProductTable";
-
-// export default function App() {
-//   // default arguments: skip=0, search="", category="all"
-//   const { data, isLoading, isError } = useProducts();
-
-//   return (
-//     <Layout>
-//       {isError && (
-//         <p className="text-red-500">Failed to load products. Try again.</p>
-//       )}
-
-//       <ProductTable
-//         products={data?.products ?? []} // safe optional chaining
-//         isLoading={isLoading}
-//         onEdit={(p) => console.log("edit", p)}
-//         onDelete={(id) => console.log("delete", id)}
-//       />
-//     </Layout>
-//   );
-// }
 
 export default function App() {
   const [skip, setSkip] = useState(0);
@@ -74,7 +30,6 @@ export default function App() {
           <option value="laptops">Laptops</option>
           <option value="fragrances">Fragrances</option>
           <option value="groceries">Groceries</option>
-          {/* Add more dummyjson categories here */}
         </select>
       </div>
 
@@ -90,7 +45,6 @@ export default function App() {
         category={category}
       />
 
-      {/* Pagination */}
       <div className="mt-4 flex justify-between">
         <button
           className="px-3 py-1 border rounded-md"
