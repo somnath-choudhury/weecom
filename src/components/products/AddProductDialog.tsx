@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +14,8 @@ import { useMutation } from "@tanstack/react-query";
 import { addProduct } from "@/lib/api";
 import { queryClient } from "@/lib/queryClient";
 import type { Product } from "@/types/product";
+import { toast } from "sonner";
+
 
 export const AddProductDialog = () => {
   const [open, setOpen] = useState(false);
@@ -32,12 +35,12 @@ export const AddProductDialog = () => {
         };
       });
 
-    //   toast.success("Product added!");
+      toast.success("Product added!");
       setOpen(false);
       setTitle("");
       setPrice(0);
     },
-    // onError: () => toast.error("Failed to add product"),
+    onError: () => toast.error("Failed to add product"),
   });
 
   return (

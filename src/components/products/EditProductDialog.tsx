@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 interface EditProductDialogProps {
   product: Product;
@@ -64,10 +65,10 @@ export function EditProductDialog({
           context.previousData
         );
       }
-    //   toast.error("Failed to update product");
+      toast.error("Failed to update product");
     },
     onSuccess: () => {
-    //   toast.success("Product updated!");
+      toast.success("Product updated!");
       setOpen(false);
     },
   });
